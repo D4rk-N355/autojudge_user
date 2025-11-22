@@ -3,14 +3,20 @@ document.getElementById("cForm").addEventListener("submit", async (e) => {
 
   const resultBox = document.getElementById("c_result");
   const rawBox = document.getElementById("c_result_raw");
+  const problemIdEl = document.getElementById("c_problem_id");
+  const fileEl = document.getElementById("c_file");
 
-  // 顯示提交提示
-  resultBox.innerText = "提交成功，等待回傳…";
+  if (!problemIdEl.value || !fileEl.files.length) {
+    resultBox.innerText = "請輸入題目編號並選擇檔案。";
+    return;
+  }
+
+  resultBox.innerText = "已提交，等待伺服器回應…";
   rawBox.innerText = "";
 
   const formData = new FormData();
-  formData.append("problem_id", document.getElementById("c_problem_id").value);
-  formData.append("file", document.getElementById("c_file").files[0]);
+  formData.append("problem_id", problemIdEl.value);
+  formData.append("file", fileEl.files[0]);
 
   try {
     const response = await fetch("https://tte1ck3.zeabur.app/submit", {
@@ -20,27 +26,13 @@ document.getElementById("cForm").addEventListener("submit", async (e) => {
 
     const data = await response.json();
 
-    // 顯示簡化結果
     resultBox.innerText =
       `題目: ${data.problem_id}\n結果: ${data.result}\n輸出預覽: ${data.output_preview}`;
-
-    // 顯示完整 JSON
     rawBox.innerText = JSON.stringify(data, null, 2);
 
-    // 清空檔案選取框
-    document.getElementById("c_file").value = "";
+    fileEl.value = "";
   } catch (err) {
     resultBox.innerText = "提交失敗，請稍後再試。";
-    console.error(err);
+    rawBox.innerText = err.message;
   }
 });
-const text = await response.text();
-try {
-  const data = JSON.parse(text);
-  resultBox.innerText =
-    `題目: ${data.problem_id}\n結果: ${data.result}\n輸出預覽: ${data.output_preview}`;
-  rawBox.innerText = JSON.stringify(data, null, 2);
-} catch {
-  resultBox.innerText = "提交失敗：伺服器回傳不是 JSON。";
-  rawBox.innerText = text;
-}
