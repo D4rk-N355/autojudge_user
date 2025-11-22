@@ -5,31 +5,58 @@ body {
   padding: 2em;
 }
 
+h1 {
+  text-align: center;
+  color: #333;
+}
+
 .form-card {
   background: #fff;
   padding: 1.5em;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-card label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.form-card input {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
+  margin-top: 1.5em;
+  width: 100%;
   background: #0078d7;
   color: #fff;
   border: none;
-  padding: 0.6em 1.2em;
+  padding: 0.8em;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1em;
 }
 button:hover {
   background: #005a9e;
 }
 
 .card {
-  margin-top: 1.5em;
+  margin-top: 2em;
   background: #fff;
   padding: 1.5em;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hidden { display: none; }
@@ -40,3 +67,10 @@ button:hover {
 #r_result.AC { color: green; }
 #r_result.WA { color: red; }
 #r_result.RE, #r_result.TLE, #r_result.CE { color: orange; }
+
+pre {
+  background: #f7f7f7;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
