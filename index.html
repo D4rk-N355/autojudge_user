@@ -1,14 +1,36 @@
-<form id="cForm" class="form-card">
-  <input type="text" id="c_problem_id" placeholder="題目編號" />
-  <input type="file" id="c_file" />
-  <button type="submit">提交程式</button>
-</form>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>線上判題系統</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>線上判題系統</h1>
 
-<div id="resultCard" class="card hidden">
-  <h3>題目編號: <span id="r_problem"></span></h3>
-  <p>判題結果: <span id="r_result"></span></p>
-  <p id="r_failcase"></p>
-  <pre id="r_output"></pre>
-</div>
+  <!-- 提交表單 -->
+  <form id="cForm" class="form-card">
+    <label for="c_problem_id">題目編號</label>
+    <input type="text" id="c_problem_id" placeholder="請輸入題目編號" />
 
-<pre id="c_result_raw"></pre>
+    <label for="c_file">上傳程式碼 (.c)</label>
+    <input type="file" id="c_file" accept=".c" />
+
+    <button type="submit">提交程式</button>
+  </form>
+
+  <!-- 結果卡片 -->
+  <div id="resultCard" class="card hidden">
+    <h3>題目編號: <span id="r_problem"></span></h3>
+    <p>判題結果: <span id="r_result"></span></p>
+    <p id="r_failcase"></p>
+    <pre id="r_output"></pre>
+  </div>
+
+  <!-- 原始 JSON 顯示 (debug 用) -->
+  <h3>原始回傳資料</h3>
+  <pre id="c_result_raw"></pre>
+
+  <script src="script.js"></script>
+</body>
+</html>
