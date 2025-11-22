@@ -54,6 +54,14 @@ button:hover {
   white-space: pre-line;
 }
 
+pre.result {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
 .section-title {
   margin-top: 20px;
   font-size: 18px;
