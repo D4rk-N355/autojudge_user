@@ -34,3 +34,13 @@ document.getElementById("cForm").addEventListener("submit", async (e) => {
     console.error(err);
   }
 });
+const text = await response.text();
+try {
+  const data = JSON.parse(text);
+  resultBox.innerText =
+    `題目: ${data.problem_id}\n結果: ${data.result}\n輸出預覽: ${data.output_preview}`;
+  rawBox.innerText = JSON.stringify(data, null, 2);
+} catch {
+  resultBox.innerText = "提交失敗：伺服器回傳不是 JSON。";
+  rawBox.innerText = text;
+}
