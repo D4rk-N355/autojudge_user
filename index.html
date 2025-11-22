@@ -8,11 +8,21 @@
 <body>
   <h1>線上判題系統</h1>
 
+  <!-- 題目選擇 -->
+  <div class="form-card">
+    <label for="problemSelect">選擇題目</label>
+    <select id="problemSelect"></select>
+  </div>
+
+  <!-- 題目敘述顯示 -->
+  <div id="problemDesc" class="card hidden">
+    <h3>題目敘述</h3>
+    <pre id="descText"></pre>
+    <p id="testcaseCount"></p>
+  </div>
+
   <!-- 提交表單 -->
   <form id="cForm" class="form-card">
-    <label for="c_problem_id">題目編號</label>
-    <input type="text" id="c_problem_id" placeholder="請輸入題目編號" />
-
     <label for="c_file">上傳程式碼 (.c)</label>
     <input type="file" id="c_file" accept=".c" />
 
