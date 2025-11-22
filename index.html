@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Judge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Online Judge 系統</h1>
+
+  <div class="container">
+    <div class="section-title">C 語言提交</div>
+    <form id="cForm">
+      <label>題目編號 (problem_id):</label>
+      <input type="text" id="c_problem_id" required>
+      <label>程式碼檔案 (.c):</label>
+      <input type="file" id="c_file" accept=".c" required>
+      <button type="submit">提交 C 程式</button>
+    </form>
+    <div id="c_result" class="result"></div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">Java 提交</div>
+    <form id="javaForm">
+      <label>題目編號 (problem_id):</label>
+      <input type="text" id="java_problem_id" required>
+      <label>程式碼檔案 (.java):</label>
+      <input type="file" id="java_file" accept=".java" required>
+      <button type="submit">提交 Java 程式</button>
+    </form>
+    <div id="java_result" class="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
